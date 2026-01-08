@@ -18,7 +18,7 @@ import {
   X,
   Plus
 } from 'lucide-react';
-import { BookingFormData, ServiceCardProps, FAQItem } from './types';
+import { BookingFormData, ServiceCardProps, FAQItem } from './types.ts';
 
 // --- Helper Components ---
 
