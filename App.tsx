@@ -136,12 +136,15 @@ const App: React.FC = () => {
       {/* Header */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center text-white">
-              <Leaf className="w-6 h-6" />
+          <a href="#" className="flex items-center gap-3 group cursor-pointer">
+            <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
+              <img src="/logo.png" alt="TerraVent Logo" className="w-full h-full object-contain group-hover:scale-110 transition-transform" onError={(e) => {
+                // Фолбек на случай, если файла нет
+                e.currentTarget.src = "https://cdn-icons-png.flaticon.com/512/628/628283.png";
+              }} />
             </div>
             <span className="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">TerraVent</span>
-          </div>
+          </a>
 
           <nav className="hidden lg:flex items-center gap-8">
             <NavItem href="#services">Services</NavItem>
@@ -201,8 +204,10 @@ const App: React.FC = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-2xl relative">
-              <img src="https://picsum.photos/seed/soil/800/600" alt="Farmer examining healthy soil" className="w-full h-auto object-cover" />
+            <div className="rounded-3xl overflow-hidden shadow-2xl relative bg-slate-200">
+              <img src="/hero-soil.jpg" alt="Farmer examining healthy soil" className="w-full h-auto object-cover min-h-[400px]" onError={(e) => {
+                e.currentTarget.src = "https://picsum.photos/seed/soil/800/600";
+              }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-4 max-w-xs">
@@ -246,7 +251,7 @@ const App: React.FC = () => {
       {/* Solution Section (PSF) */}
       <section id="process" className="py-24 bg-slate-900 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-1/2 translate-y-1/2 scale-150">
-          <Leaf className="w-96 h-96" />
+           <img src="/logo.png" alt="" className="w-96 h-96 opacity-20" />
         </div>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -273,8 +278,12 @@ const App: React.FC = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src="https://picsum.photos/seed/tractor1/400/500" alt="PSF Machinery" className="rounded-2xl shadow-xl mt-12" />
-              <img src="https://picsum.photos/seed/tractor2/400/500" alt="Soil Analysis" className="rounded-2xl shadow-xl" />
+              <img src="/psf-machine.jpg" alt="PSF Machinery" className="rounded-2xl shadow-xl mt-12 bg-slate-800" onError={(e) => {
+                e.currentTarget.src = "https://picsum.photos/seed/tractor1/400/500";
+              }} />
+              <img src="/soil-analysis.jpg" alt="Soil Analysis" className="rounded-2xl shadow-xl bg-slate-800" onError={(e) => {
+                e.currentTarget.src = "https://picsum.photos/seed/tractor2/400/500";
+              }} />
             </div>
           </div>
         </div>
@@ -344,7 +353,9 @@ const App: React.FC = () => {
       <section id="benefits" className="py-24 bg-white">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
-            <img src="https://picsum.photos/seed/harvest/800/800" alt="Bumper crop harvest" className="rounded-3xl shadow-2xl" />
+            <img src="/harvest-results.jpg" alt="Bumper crop harvest" className="rounded-3xl shadow-2xl bg-slate-100" onError={(e) => {
+                e.currentTarget.src = "https://picsum.photos/seed/harvest/800/800";
+              }} />
           </div>
           <div className="order-1 lg:order-2">
             <h2 className="text-4xl font-bold mb-8">Why Thousands of Hectares Trust PSF</h2>
@@ -385,7 +396,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="bg-emerald-900 text-white p-12 rounded-[40px] relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-20"><Wind className="w-32 h-32" /></div>
+              <div className="absolute top-0 right-0 p-8 opacity-20"><img src="/logo.png" className="w-32 h-32 brightness-0 invert" alt="" /></div>
               <h3 className="text-3xl font-bold mb-6 italic">Our Mission</h3>
               <p className="text-xl text-emerald-100 leading-relaxed mb-8">
                 Based in Borås, TerraVent was founded to enhance soil quality and farm profitability throughout Southern Sweden. We believe that sustainable agriculture starts with healthy soil, and our mission is to make advanced soil restoration accessible to every farm, regardless of their capital budget.
@@ -547,8 +558,10 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 lg:col-span-1">
-              <div className="flex items-center gap-2 text-white mb-6">
-                <Leaf className="w-8 h-8 text-emerald-500" />
+              <div className="flex items-center gap-3 text-white mb-6">
+                <div className="w-10 h-10 overflow-hidden flex items-center justify-center">
+                    <img src="/logo.png" alt="" className="w-full h-full object-contain brightness-0 invert" />
+                </div>
                 <span className="text-2xl font-bold">TerraVent</span>
               </div>
               <p className="leading-relaxed mb-6">Sustainable soil restoration service based in Borås, Sweden. Empowering farmers with next-gen technology.</p>
