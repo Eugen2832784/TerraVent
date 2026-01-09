@@ -131,9 +131,9 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden font-sans">
       {/* Header */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3 group cursor-pointer">
             <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
@@ -190,9 +190,9 @@ const App: React.FC = () => {
               <Zap className="w-4 h-4" />
               <span>Sustainable Soil Restoration in Sweden</span>
             </div>
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-slate-900 mb-8">
+            <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-slate-900 mb-8 font-serif">
               Compacted soil reduces drainage and yield. 
-              <span className="text-emerald-700 block mt-2 italic">Give it a breath of fresh air.</span>
+              <span className="text-emerald-700 block mt-2 italic font-serif">Give it a breath of fresh air.</span>
             </h1>
             <p className="text-xl text-slate-600 mb-10 leading-relaxed">
               Restore your soil structure without destructive repeated tillage. We bring Pneumatic Soil Fracturing (PSF) to Southern Sweden—a proven, service-based model for healthier roots and higher yields.
@@ -207,10 +207,10 @@ const App: React.FC = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-2xl relative bg-slate-200">
+            <div className="rounded-3xl overflow-hidden shadow-2xl relative bg-slate-200 border-4 border-white">
               <img 
                 src="hero-soil.jpg" 
-                alt="Farmer examining healthy soil" 
+                alt="TerraVent Service in Action" 
                 className="w-full h-auto object-cover min-h-[400px]" 
                 onError={(e) => {
                   e.currentTarget.src = "https://picsum.photos/seed/soil/800/600";
@@ -235,7 +235,7 @@ const App: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">The Hidden Cost of Compaction</h2>
+            <h2 className="text-4xl font-bold mb-6 font-serif">The Hidden Cost of Compaction</h2>
             <p className="text-xl text-slate-600">Compacted soil is like a sponge that's been squeezed tight. It stops the essential flow of nutrients, air, and water that your crops depend on.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-12">
@@ -264,7 +264,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-8">Pneumatic Soil Fracturing (PSF): The Solution</h2>
+              <h2 className="text-4xl font-bold mb-8 font-serif text-emerald-400">Pneumatic Soil Fracturing (PSF): The Solution</h2>
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
                 We use high-pressure air injection to physically break apart deep compacted layers. This creates a network of fissures that instantly restores drainage and allows roots to dive deep.
               </p>
@@ -281,27 +281,29 @@ const App: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-12 bg-emerald-900/40 border border-emerald-800 p-6 rounded-2xl">
-                <p className="italic text-emerald-200">"Proven globally, now adapted for the unique soil conditions of Sweden. TerraVent brings world-class technology to your local farm."</p>
-              </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="psf-machine.jpg" 
-                alt="PSF Machinery" 
-                className="rounded-2xl shadow-xl mt-12 bg-slate-800" 
-                onError={(e) => {
-                  e.currentTarget.src = "https://picsum.photos/seed/tractor1/400/500";
-                }} 
-              />
-              <img 
-                src="soil-analysis.jpg" 
-                alt="Soil Analysis" 
-                className="rounded-2xl shadow-xl bg-slate-800" 
-                onError={(e) => {
-                  e.currentTarget.src = "https://picsum.photos/seed/tractor2/400/500";
-                }} 
-              />
+            <div className="space-y-6">
+              <div className="bg-white p-4 rounded-2xl shadow-2xl overflow-hidden aspect-video relative group border-4 border-emerald-500/30">
+                <img 
+                  src="soil-analysis.jpg" 
+                  alt="Soil Fracturing Diagram" 
+                  className="w-full h-full object-contain" 
+                  onError={(e) => {
+                    e.currentTarget.src = "https://picsum.photos/seed/diagram/800/450";
+                  }} 
+                />
+                <div className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">HOW IT WORKS</div>
+              </div>
+              <div className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl aspect-video border border-slate-700">
+                <img 
+                  src="psf-machine.jpg" 
+                  alt="TerraVent Machinery" 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => {
+                    e.currentTarget.src = "https://picsum.photos/seed/tractor/800/450";
+                  }} 
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -312,7 +314,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-bold mb-4">Our Core Services</h2>
+              <h2 className="text-4xl font-bold mb-4 font-serif">Our Core Services</h2>
               <p className="text-xl text-slate-600">Comprehensive soil health management designed specifically for small and medium-sized farms.</p>
             </div>
             <a href="#booking" className="text-emerald-700 font-bold flex items-center gap-2 group">
@@ -340,12 +342,6 @@ const App: React.FC = () => {
               title="Monitoring & Follow-up" 
               description="Post-service soil health monitoring to track improvement and plan future maintenance cycles."
             />
-            <ServiceCard 
-              tag="Optional Add-on"
-              icon={<ShieldCheck />} 
-              title="Biochar Injection" 
-              description="Directly inject biochar into fractured layers to lock in carbon and improve nutrient retention."
-            />
           </div>
         </div>
       </section>
@@ -353,7 +349,7 @@ const App: React.FC = () => {
       {/* How It Works Section */}
       <section className="py-24 bg-emerald-50/30 border-y border-emerald-100">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">The Five-Step Process</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 font-serif">The Five-Step Process</h2>
           <div className="grid md:grid-cols-5 gap-8 relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-emerald-200 -translate-y-12"></div>
             
@@ -370,17 +366,19 @@ const App: React.FC = () => {
       <section id="benefits" className="py-24 bg-white">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
-            <img 
-              src="harvest-results.jpg" 
-              alt="Bumper crop harvest" 
-              className="rounded-3xl shadow-2xl bg-slate-100" 
-              onError={(e) => {
-                e.currentTarget.src = "https://picsum.photos/seed/harvest/800/800";
-              }} 
-            />
+            <div className="rounded-3xl overflow-hidden shadow-2xl bg-slate-100 border-8 border-slate-50">
+              <img 
+                src="harvest-results.jpg" 
+                alt="Bumper crop harvest" 
+                className="w-full h-auto object-cover" 
+                onError={(e) => {
+                  e.currentTarget.src = "https://picsum.photos/seed/harvest/800/800";
+                }} 
+              />
+            </div>
           </div>
           <div className="order-1 lg:order-2">
-            <h2 className="text-4xl font-bold mb-8">Why Thousands of Hectares Trust PSF</h2>
+            <h2 className="text-4xl font-bold mb-8 font-serif">Why Thousands of Hectares Trust PSF</h2>
             <div className="space-y-8">
               <BenefitItem title="Dramatic Drainage Improvement" text="Eliminate standing water and reduce surface runoff within days of treatment." />
               <BenefitItem title="Healthier, Deeper Roots" text="Roots can finally reach water and nutrients in the subsoil layers previously blocked by compaction." />
@@ -397,7 +395,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">The TerraVent Difference</h2>
+              <h2 className="text-4xl font-bold mb-6 font-serif">The TerraVent Difference</h2>
               <p className="text-xl text-slate-600">We aren't just a machinery service. We are your partners in soil health.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -417,12 +415,12 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-emerald-900 text-white p-12 rounded-[40px] relative overflow-hidden">
+            <div className="bg-emerald-900 text-white p-12 rounded-[40px] relative overflow-hidden shadow-2xl shadow-emerald-900/20">
               <div className="absolute top-0 right-0 p-8 opacity-20">
                 <img src="logo.png" className="w-32 h-32 brightness-0 invert" alt="" />
               </div>
-              <h3 className="text-3xl font-bold mb-6 italic">Our Mission</h3>
-              <p className="text-xl text-emerald-100 leading-relaxed mb-8">
+              <h3 className="text-3xl font-bold mb-6 italic font-serif text-emerald-300">Our Mission</h3>
+              <p className="text-xl text-emerald-50/90 leading-relaxed mb-8">
                 Based in Borås, TerraVent was founded to enhance soil quality and farm profitability throughout Southern Sweden. We believe that sustainable agriculture starts with healthy soil, and our mission is to make advanced soil restoration accessible to every farm, regardless of their capital budget.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-emerald-800">
@@ -443,49 +441,34 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Social Proof / Partners */}
-      <section className="py-20 bg-white border-y border-slate-100">
-        <div className="container mx-auto px-6">
-          <p className="text-center text-slate-500 font-bold uppercase tracking-widest text-sm mb-12">Our Technology Partners & Suppliers</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale">
-            {['Lister Wilder', 'Airter UK', 'SLU Sweden', 'Nycander AB', 'Jordbruksverket'].map((partner, i) => (
-              <span key={i} className="text-2xl font-black text-slate-400">{partner}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Booking / Conversion Section */}
       <section id="booking" className="py-24 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto bg-slate-900 rounded-[48px] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">Ready to restore your land?</h2>
+            <div className="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 font-serif">Ready to restore your land?</h2>
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
                 Book a free initial consultation today. We'll discuss your soil concerns and show you how PSF can transform your fields.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-600/20">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-400">Call us directly</p>
-                    <p className="text-xl font-bold">+46 (0) 33 123 45 67</p>
+                    <p className="text-sm text-slate-400 uppercase tracking-widest font-bold">Call us</p>
+                    <p className="text-xl font-bold tracking-tight">+46 (0) 33 123 45 67</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-600/20">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-400">Email inquiries</p>
-                    <p className="text-xl font-bold">contact@terravent.se</p>
+                    <p className="text-sm text-slate-400 uppercase tracking-widest font-bold">Email</p>
+                    <p className="text-xl font-bold tracking-tight">contact@terravent.se</p>
                   </div>
                 </div>
-              </div>
-              <div className="mt-12 pt-8 border-t border-slate-800">
-                <p className="text-slate-400 text-sm">Service Area: Southern Sweden (Västra Götaland, Skåne, Halland, Småland)</p>
               </div>
             </div>
 
@@ -495,13 +478,13 @@ const App: React.FC = () => {
                   <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-3xl font-bold mb-4">Request Received!</h3>
+                  <h3 className="text-3xl font-bold mb-4 font-serif">Request Received!</h3>
                   <p className="text-slate-600 mb-8">Thank you for your interest in TerraVent. One of our soil experts will contact you within 24 hours.</p>
                   <button onClick={() => setFormStatus('idle')} className="text-emerald-700 font-bold hover:underline">Send another request</button>
                 </div>
               ) : (
                 <form onSubmit={handleBookingSubmit} className="space-y-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Request a Consultation</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6 font-serif">Request a Consultation</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
@@ -526,17 +509,6 @@ const App: React.FC = () => {
                       <input type="number" className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all" placeholder="e.g. 50" />
                     </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Main Soil Concern</label>
-                    <select className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all">
-                      <option>Select an issue...</option>
-                      <option>Standing Water / Drainage</option>
-                      <option>Low Crop Yield</option>
-                      <option>Severe Surface Runoff</option>
-                      <option>Restricted Root Growth</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
                   <button 
                     type="submit" 
                     disabled={formStatus === 'submitting'}
@@ -544,7 +516,6 @@ const App: React.FC = () => {
                   >
                     {formStatus === 'submitting' ? 'Sending...' : 'Request Free Consultation'}
                   </button>
-                  <p className="text-xs text-slate-400 text-center">By submitting, you agree to our privacy policy and terms of service.</p>
                 </form>
               )}
             </div>
@@ -552,99 +523,46 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-                <button 
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                  className="w-full px-8 py-6 text-left flex justify-between items-center group"
-                >
-                  <span className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">{faq.question}</span>
-                  <Plus className={`w-6 h-6 text-slate-400 transition-transform duration-300 ${activeFaq === i ? 'rotate-45 text-emerald-600' : ''}`} />
-                </button>
-                {activeFaq === i && (
-                  <div className="px-8 pb-8 animate-in slide-in-from-top-2 duration-300">
-                    <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-20 border-t border-slate-800">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 text-center lg:text-left">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-1 lg:col-span-1">
-              <div className="flex items-center gap-3 text-white mb-6">
-                <div className="w-10 h-10 overflow-hidden flex items-center justify-center">
-                  <img src="logo.png" alt="" className="w-full h-full object-contain brightness-0 invert" />
-                </div>
+            <div>
+              <div className="flex items-center gap-3 text-white mb-6 justify-center lg:justify-start">
+                <img src="logo.png" alt="" className="w-10 h-10 object-contain brightness-0 invert" />
                 <span className="text-2xl font-bold">TerraVent</span>
               </div>
-              <p className="leading-relaxed mb-6">Sustainable soil restoration service based in Borås, Sweden. Empowering farmers with next-gen technology.</p>
-              <div className="flex gap-4">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
-                    <div className="w-5 h-5 bg-slate-600 rounded-sm"></div>
-                  </div>
-                ))}
-              </div>
+              <p className="leading-relaxed">Sustainable soil restoration based in Borås, Sweden. Empowering farmers with next-gen ag-tech.</p>
             </div>
             <div>
-              <h4 className="text-white font-bold mb-6">Navigation</h4>
+              <h4 className="text-white font-bold mb-6">Explore</h4>
               <ul className="space-y-4">
-                <li><a href="#services" className="hover:text-emerald-400 transition-colors">Services</a></li>
-                <li><a href="#process" className="hover:text-emerald-400 transition-colors">How it works</a></li>
-                <li><a href="#benefits" className="hover:text-emerald-400 transition-colors">Results</a></li>
-                <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Us</a></li>
+                <li><a href="#services" className="hover:text-emerald-400">Services</a></li>
+                <li><a href="#process" className="hover:text-emerald-400">How it works</a></li>
+                <li><a href="#benefits" className="hover:text-emerald-400">Results</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-bold mb-6">Support</h4>
+              <h4 className="text-white font-bold mb-6">Company</h4>
               <ul className="space-y-4">
-                <li><a href="#faq" className="hover:text-emerald-400 transition-colors">FAQ</a></li>
-                <li><a href="#booking" className="hover:text-emerald-400 transition-colors">Book Consultation</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+                <li><a href="#about" className="hover:text-emerald-400">About Us</a></li>
+                <li><a href="#faq" className="hover:text-emerald-400">FAQ</a></li>
+                <li><a href="#booking" className="hover:text-emerald-400">Contact</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-bold mb-6">Contact</h4>
-              <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <MapPin className="w-5 h-5 text-emerald-500" />
-                  <span>Västgötagatan 12, 504 41 Borås, Sweden</span>
-                </li>
-                <li className="flex gap-3">
-                  <Phone className="w-5 h-5 text-emerald-500" />
-                  <span>+46 (0) 33 123 45 67</span>
-                </li>
-                <li className="flex gap-3">
-                  <Mail className="w-5 h-5 text-emerald-500" />
-                  <span>info@terravent.se</span>
-                </li>
-              </ul>
+              <h4 className="text-white font-bold mb-6">Location</h4>
+              <p className="flex gap-3 justify-center lg:justify-start">
+                <MapPin className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                <span>Borås, Sweden</span>
+              </p>
             </div>
           </div>
           <div className="pt-8 border-t border-slate-800 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} TerraVent AB. All rights reserved. Registered in Borås, Sweden.</p>
+            <p>&copy; {new Date().getFullYear()} TerraVent AB. All rights reserved.</p>
           </div>
         </div>
       </footer>
-
-      {/* Persistent CTA (Mobile only) */}
-      <div className="md:hidden fixed bottom-6 left-6 right-6 z-40">
-        <a href="#booking" className="bg-emerald-600 text-white w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-2xl active:scale-95 transition-all">
-          <Calendar className="w-5 h-5" /> Book Consultation
-        </a>
-      </div>
     </div>
   );
 };
