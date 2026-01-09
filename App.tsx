@@ -137,14 +137,10 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3 group cursor-pointer">
             <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
-              <img 
-                src="logo.png" 
-                alt="TerraVent Logo" 
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
-                onError={(e) => {
-                  e.currentTarget.src = "https://cdn-icons-png.flaticon.com/512/628/628283.png";
-                }} 
-              />
+              {/* По умолчанию используем иконку, если logo.png нет */}
+              <div className="bg-emerald-600 rounded-lg p-2 flex items-center justify-center">
+                <Leaf className="text-white w-6 h-6" />
+              </div>
             </div>
             <span className="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">TerraVent</span>
           </a>
@@ -208,12 +204,13 @@ const App: React.FC = () => {
           </div>
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl relative bg-slate-200 border-4 border-white">
+              {/* Картинка 1: hero-soil.jpg */}
               <img 
-                src="hero-soil.jpg" 
+                src="/hero-soil.jpg" 
                 alt="TerraVent Service in Action" 
                 className="w-full h-auto object-cover min-h-[400px]" 
                 onError={(e) => {
-                  e.currentTarget.src = "https://picsum.photos/seed/soil/800/600";
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800";
                 }} 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -259,7 +256,7 @@ const App: React.FC = () => {
       {/* Solution Section (PSF) */}
       <section id="process" className="py-24 bg-slate-900 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-1/2 translate-y-1/2 scale-150">
-           <img src="logo.png" alt="" className="w-96 h-96 opacity-20" />
+           <Leaf className="w-96 h-96 text-emerald-500" />
         </div>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -284,23 +281,25 @@ const App: React.FC = () => {
             </div>
             <div className="space-y-6">
               <div className="bg-white p-4 rounded-2xl shadow-2xl overflow-hidden aspect-video relative group border-4 border-emerald-500/30">
+                {/* Картинка 2: soil-analysis.jpg */}
                 <img 
-                  src="soil-analysis.jpg" 
+                  src="/soil-analysis.jpg" 
                   alt="Soil Fracturing Diagram" 
                   className="w-full h-full object-contain" 
                   onError={(e) => {
-                    e.currentTarget.src = "https://picsum.photos/seed/diagram/800/450";
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=800";
                   }} 
                 />
                 <div className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">HOW IT WORKS</div>
               </div>
               <div className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl aspect-video border border-slate-700">
+                {/* Картинка 3: psf-machine.jpg */}
                 <img 
-                  src="psf-machine.jpg" 
+                  src="/psf-machine.jpg" 
                   alt="TerraVent Machinery" 
                   className="w-full h-full object-cover" 
                   onError={(e) => {
-                    e.currentTarget.src = "https://picsum.photos/seed/tractor/800/450";
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&q=80&w=800";
                   }} 
                 />
               </div>
@@ -368,12 +367,9 @@ const App: React.FC = () => {
           <div className="order-2 lg:order-1">
             <div className="rounded-3xl overflow-hidden shadow-2xl bg-slate-100 border-8 border-slate-50">
               <img 
-                src="harvest-results.jpg" 
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800" 
                 alt="Bumper crop harvest" 
                 className="w-full h-auto object-cover" 
-                onError={(e) => {
-                  e.currentTarget.src = "https://picsum.photos/seed/harvest/800/800";
-                }} 
               />
             </div>
           </div>
@@ -417,7 +413,7 @@ const App: React.FC = () => {
 
             <div className="bg-emerald-900 text-white p-12 rounded-[40px] relative overflow-hidden shadow-2xl shadow-emerald-900/20">
               <div className="absolute top-0 right-0 p-8 opacity-20">
-                <img src="logo.png" className="w-32 h-32 brightness-0 invert" alt="" />
+                 <Leaf className="w-32 h-32 text-white" />
               </div>
               <h3 className="text-3xl font-bold mb-6 italic font-serif text-emerald-300">Our Mission</h3>
               <p className="text-xl text-emerald-50/90 leading-relaxed mb-8">
@@ -523,13 +519,38 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 bg-slate-50">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <h2 className="text-4xl font-bold text-center mb-16 font-serif">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                <button 
+                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                  className="w-full px-8 py-6 text-left flex justify-between items-center group"
+                >
+                  <span className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">{faq.question}</span>
+                  <Plus className={`w-6 h-6 text-slate-400 transition-transform duration-300 ${activeFaq === i ? 'rotate-45 text-emerald-600' : ''}`} />
+                </button>
+                {activeFaq === i && (
+                  <div className="px-8 pb-8 animate-in slide-in-from-top-2 duration-300">
+                    <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-20 border-t border-slate-800">
         <div className="container mx-auto px-6 text-center lg:text-left">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
               <div className="flex items-center gap-3 text-white mb-6 justify-center lg:justify-start">
-                <img src="logo.png" alt="" className="w-10 h-10 object-contain brightness-0 invert" />
+                 <Leaf className="w-8 h-8 text-emerald-500" />
                 <span className="text-2xl font-bold">TerraVent</span>
               </div>
               <p className="leading-relaxed">Sustainable soil restoration based in Borås, Sweden. Empowering farmers with next-gen ag-tech.</p>
