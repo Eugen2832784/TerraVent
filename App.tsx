@@ -9,14 +9,14 @@ import {
   Calendar, 
   MapPin, 
   CheckCircle2, 
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  Phone,
-  Mail,
-  Menu,
-  X,
-  Plus
+  ArrowRight, 
+  ShieldCheck, 
+  Zap, 
+  Phone, 
+  Mail, 
+  Menu, 
+  X, 
+  Plus 
 } from 'lucide-react';
 import { BookingFormData, ServiceCardProps, FAQItem } from './types.ts';
 
@@ -91,7 +91,6 @@ const App: React.FC = () => {
   const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus('submitting');
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     setFormStatus('success');
   };
@@ -138,10 +137,14 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3 group cursor-pointer">
             <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
-              <img src="/logo.png" alt="TerraVent Logo" className="w-full h-full object-contain group-hover:scale-110 transition-transform" onError={(e) => {
-                // Фолбек на случай, если файла нет
-                e.currentTarget.src = "https://cdn-icons-png.flaticon.com/512/628/628283.png";
-              }} />
+              <img 
+                src="logo.png" 
+                alt="TerraVent Logo" 
+                className="w-full h-full object-contain group-hover:scale-110 transition-transform" 
+                onError={(e) => {
+                  e.currentTarget.src = "https://cdn-icons-png.flaticon.com/512/628/628283.png";
+                }} 
+              />
             </div>
             <span className="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">TerraVent</span>
           </a>
@@ -205,9 +208,14 @@ const App: React.FC = () => {
           </div>
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl relative bg-slate-200">
-              <img src="/hero-soil.jpg" alt="Farmer examining healthy soil" className="w-full h-auto object-cover min-h-[400px]" onError={(e) => {
-                e.currentTarget.src = "https://picsum.photos/seed/soil/800/600";
-              }} />
+              <img 
+                src="hero-soil.jpg" 
+                alt="Farmer examining healthy soil" 
+                className="w-full h-auto object-cover min-h-[400px]" 
+                onError={(e) => {
+                  e.currentTarget.src = "https://picsum.photos/seed/soil/800/600";
+                }} 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-4 max-w-xs">
@@ -251,7 +259,7 @@ const App: React.FC = () => {
       {/* Solution Section (PSF) */}
       <section id="process" className="py-24 bg-slate-900 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-1/2 translate-y-1/2 scale-150">
-           <img src="/logo.png" alt="" className="w-96 h-96 opacity-20" />
+           <img src="logo.png" alt="" className="w-96 h-96 opacity-20" />
         </div>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -278,12 +286,22 @@ const App: React.FC = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src="/psf-machine.jpg" alt="PSF Machinery" className="rounded-2xl shadow-xl mt-12 bg-slate-800" onError={(e) => {
-                e.currentTarget.src = "https://picsum.photos/seed/tractor1/400/500";
-              }} />
-              <img src="/soil-analysis.jpg" alt="Soil Analysis" className="rounded-2xl shadow-xl bg-slate-800" onError={(e) => {
-                e.currentTarget.src = "https://picsum.photos/seed/tractor2/400/500";
-              }} />
+              <img 
+                src="psf-machine.jpg" 
+                alt="PSF Machinery" 
+                className="rounded-2xl shadow-xl mt-12 bg-slate-800" 
+                onError={(e) => {
+                  e.currentTarget.src = "https://picsum.photos/seed/tractor1/400/500";
+                }} 
+              />
+              <img 
+                src="soil-analysis.jpg" 
+                alt="Soil Analysis" 
+                className="rounded-2xl shadow-xl bg-slate-800" 
+                onError={(e) => {
+                  e.currentTarget.src = "https://picsum.photos/seed/tractor2/400/500";
+                }} 
+              />
             </div>
           </div>
         </div>
@@ -337,7 +355,6 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16">The Five-Step Process</h2>
           <div className="grid md:grid-cols-5 gap-8 relative">
-            {/* Connecting Line (Desktop) */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-emerald-200 -translate-y-12"></div>
             
             <Step number={1} icon={<Calendar />} title="Book Consultation" description="Select a time online or give us a call to discuss your farm." />
@@ -353,9 +370,14 @@ const App: React.FC = () => {
       <section id="benefits" className="py-24 bg-white">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
-            <img src="/harvest-results.jpg" alt="Bumper crop harvest" className="rounded-3xl shadow-2xl bg-slate-100" onError={(e) => {
+            <img 
+              src="harvest-results.jpg" 
+              alt="Bumper crop harvest" 
+              className="rounded-3xl shadow-2xl bg-slate-100" 
+              onError={(e) => {
                 e.currentTarget.src = "https://picsum.photos/seed/harvest/800/800";
-              }} />
+              }} 
+            />
           </div>
           <div className="order-1 lg:order-2">
             <h2 className="text-4xl font-bold mb-8">Why Thousands of Hectares Trust PSF</h2>
@@ -396,7 +418,9 @@ const App: React.FC = () => {
             </div>
 
             <div className="bg-emerald-900 text-white p-12 rounded-[40px] relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-20"><img src="/logo.png" className="w-32 h-32 brightness-0 invert" alt="" /></div>
+              <div className="absolute top-0 right-0 p-8 opacity-20">
+                <img src="logo.png" className="w-32 h-32 brightness-0 invert" alt="" />
+              </div>
               <h3 className="text-3xl font-bold mb-6 italic">Our Mission</h3>
               <p className="text-xl text-emerald-100 leading-relaxed mb-8">
                 Based in Borås, TerraVent was founded to enhance soil quality and farm profitability throughout Southern Sweden. We believe that sustainable agriculture starts with healthy soil, and our mission is to make advanced soil restoration accessible to every farm, regardless of their capital budget.
@@ -560,13 +584,12 @@ const App: React.FC = () => {
             <div className="col-span-1 lg:col-span-1">
               <div className="flex items-center gap-3 text-white mb-6">
                 <div className="w-10 h-10 overflow-hidden flex items-center justify-center">
-                    <img src="/logo.png" alt="" className="w-full h-full object-contain brightness-0 invert" />
+                  <img src="logo.png" alt="" className="w-full h-full object-contain brightness-0 invert" />
                 </div>
                 <span className="text-2xl font-bold">TerraVent</span>
               </div>
               <p className="leading-relaxed mb-6">Sustainable soil restoration service based in Borås, Sweden. Empowering farmers with next-gen technology.</p>
               <div className="flex gap-4">
-                {/* Social Placeholders */}
                 {[1, 2, 3].map(i => (
                   <div key={i} className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
                     <div className="w-5 h-5 bg-slate-600 rounded-sm"></div>
